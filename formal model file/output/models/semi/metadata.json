@@ -1,0 +1,37 @@
+{
+  "house_type": "semi",
+  "param_cols": [
+    "width",
+    "length",
+    "height",
+    "orientation",
+    "wwr",
+    "wallInsulationThickness",
+    "roofInsulationThickness",
+    "slabInsulationThickness",
+    "u_windows",
+    "g_value",
+    "roofAbsorptance",
+    "flowCoefficient",
+    "wof",
+    "fixedShadingDepth"
+  ],
+  "target_cols": [
+    "He_worst",
+    "We_max_worst",
+    "T_op_peak",
+    "hours_gt26_night",
+    "heat_kWh_m2"
+  ],
+  "n_train": 1400,
+  "n_val": 300,
+  "n_test": 300,
+  "mlp_architecture": "14\u2192128(BN+ReLU+Drop)\u219264(BN+ReLU+Drop)\u219232(ReLU)\u21925",
+  "best_model_per_target": {
+    "He_worst": "XGBoost",
+    "We_max_worst": "XGBoost",
+    "T_op_peak": "XGBoost",
+    "hours_gt26_night": "XGBoost",
+    "heat_kWh_m2": "MLP"
+  }
+}

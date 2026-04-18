@@ -1,0 +1,51 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Local virtual env / editor noise
+.venv/
+.idea/
+.vscode/
+
+# Large or legacy directories not part of the final dissertation workflow
+BENV0166_2025/
+BESOS/
+Introduction to Machine Learning/
+dissertation context/
+model/
+model file/
+/output/
+
+# Ad hoc local files
+1 1.idf
+review_bundle_2026-04-17.zip
+*.zip
+*.docx
+*.pdf
+*.pptx
+*.Rhistory
+
+# Editable drafts not needed for the code/results repo
+dissertation (1).pdf
+dissertation draft.docx
+improved_dissertation.docx
+energies-15-06090.pdf
+演示文稿2.pptx
+
+# EnergyPlus raw runs are too large for Git
+formal model file/output/runs/
+
+# Archived intermediate clutter
+formal model file/output/archive/
+formal model file/script/archive/
+formal model file/script/work.ipynb
+formal model file/full context1.docx
+formal model file/parameter_table_v8.docx
+formal model file/semidetached.idf
+
+# Keep the maintained LaTeX project, ignore loose legacy tex copies at repo root
+/main.tex
+/main3.tex

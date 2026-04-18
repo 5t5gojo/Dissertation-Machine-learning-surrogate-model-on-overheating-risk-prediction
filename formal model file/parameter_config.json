@@ -1,0 +1,267 @@
+{
+    "_metadata": {
+        "description": "Parameter configuration for UK detached house overheating surrogate model",
+        "author": "Houlin - UCL SBEER Dissertation 2025-26",
+        "idf_template": "detachedhouse0.idf",
+        "sampling_method": "Latin Hypercube Sampling (LHS)",
+        "assessment_standard": "CIBSE TM52/TM59 adaptive comfort",
+        "notes": [
+            "Ranges cover existing UK detached/semi-detached housing stock plus retrofit scenarios",
+            "Insulation thickness ranges correspond to uninsulated (pre-1965) through to current Part L 2021 standards",
+            "Window U-values span single glazing (~5.0) to triple glazing (~0.8)",
+            "ACH range covers airtight new-build (0.15) to leaky pre-1965 stock (1.5)"
+        ]
+    },
+
+    "parameters": {
+        "geometry": {
+            "width": {
+                "idf_placeholder": "@width@",
+                "description": "Building width / frontage",
+                "unit": "m",
+                "min": 5.5,
+                "max": 10.0,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (3.6-7.0m for semi; scaled up for detached); EHS typical floor plans",
+                "constraint_notes": "Must be > 5.5m due to hardcoded door at x=4.475-5.475 in IDF"
+            },
+            "length": {
+                "idf_placeholder": "@length@",
+                "description": "Building depth",
+                "unit": "m",
+                "min": 6.0,
+                "max": 12.0,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (8.0-17.3m); adjusted for UK detached houses"
+            },
+            "height": {
+                "idf_placeholder": "@height@",
+                "description": "Storey height (floor-to-floor)",
+                "unit": "m",
+                "min": 2.4,
+                "max": 3.0,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (2.1-3.3m); UK typical 2.4-2.7m"
+            }
+        },
+
+        "thermal_envelope": {
+            "wallInsulationThickness": {
+                "idf_placeholder": "@wallInsulationThickness@",
+                "description": "External wall insulation layer thickness (conductivity=0.05 W/mK in IDF)",
+                "unit": "m",
+                "min": 0.010,
+                "max": 0.200,
+                "distribution": "uniform",
+                "derived_u_value_range": "Insulation-only R: 0.2 to 4.0 m2K/W",
+                "source": "Part L 2021 renovation target U=0.30; Lawrence et al. R-value wall 0.65-10 m2K/W",
+                "constraint_notes": "0.01m ≈ uninsulated cavity wall; 0.20m ≈ exceeds Part L 2021 new-build"
+            },
+            "roofInsulationThickness": {
+                "idf_placeholder": "@roofInsulationThickness@",
+                "description": "Roof insulation layer thickness (conductivity=0.05 W/mK in IDF)",
+                "unit": "m",
+                "min": 0.025,
+                "max": 0.300,
+                "distribution": "uniform",
+                "derived_u_value_range": "Insulation-only R: 0.5 to 6.0 m2K/W",
+                "source": "Part L 2021 renovation target U=0.16 (≈250mm mineral wool); Lawrence et al. R-value roof 0.48-14"
+            },
+            "slabInsulationThickness": {
+                "idf_placeholder": "@slabInsulationThickness@",
+                "description": "Ground floor slab insulation thickness (conductivity=0.05 W/mK in IDF)",
+                "unit": "m",
+                "min": 0.010,
+                "max": 0.150,
+                "distribution": "uniform",
+                "derived_u_value_range": "Insulation-only R: 0.2 to 3.0 m2K/W",
+                "source": "Part L 2021 target U=0.25 for floors; many existing homes uninsulated"
+            }
+        },
+
+        "glazing": {
+            "u_windows": {
+                "idf_placeholder": "@u_windows@",
+                "description": "Window system U-factor (SimpleGlazingSystem)",
+                "unit": "W/m2-K",
+                "min": 0.8,
+                "max": 5.0,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (0.71-5.68); Part L 2021 new window max U=1.4; single glazing ~5.0",
+                "constraint_notes": "EnergyPlus SimpleGlazingSystem valid range approx 0.5-7.0"
+            },
+            "g_value": {
+                "idf_placeholder": "@g_value@",
+                "description": "Solar Heat Gain Coefficient (SHGC / g-value)",
+                "unit": "dimensionless",
+                "min": 0.20,
+                "max": 0.70,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (0.20-0.70); Evins parameter space (0.1-0.8); Botti et al. baseline 0.63"
+            }
+        },
+
+        "roof_properties": {
+            "roofAbsorptance": {
+                "idf_placeholder": "@roofAbsorptance@",
+                "description": "Solar absorptance of roof tiles (affects solar heat gain through roof)",
+                "unit": "dimensionless",
+                "min": 0.3,
+                "max": 0.9,
+                "distribution": "uniform",
+                "source": "Light coloured tiles ~0.3; dark tiles/slate ~0.9; EnergyPlus default 0.7"
+            }
+        },
+
+        "infiltration": {
+            "flowCoefficient": {
+                "idf_placeholder": "@flowCoefficient@",
+                "description": "Air infiltration rate (air changes per hour)",
+                "unit": "ACH",
+                "min": 0.15,
+                "max": 1.50,
+                "distribution": "uniform",
+                "source": "Lawrence et al. 2021 (1-21.77 ACH, but upper extreme); UK typical existing 0.5-1.0 ACH; airtight new-build ~0.15",
+                "constraint_notes": "ACH > 1.5 is very leaky; < 0.15 requires MVHR. Range covers stock + retrofit."
+            }
+        },
+
+        "hvac": {
+            "heatingSetpoint": {
+                "idf_placeholder": "@heatingSetpoint@",
+                "description": "Thermostat heating setpoint temperature",
+                "unit": "C",
+                "min": 18.0,
+                "max": 23.0,
+                "distribution": "uniform",
+                "source": "Evins parameter space (5-28C); Typical UK living room 18-21C; bedrooms 16-19C",
+                "constraint_notes": "Cooling setpoint fixed at 100C in IDF (no mechanical cooling = free-running in summer)"
+            }
+        }
+    },
+
+    "derived_parameters": {
+        "_description": "These are calculated from the primary parameters above, not sampled independently",
+        "2height": {
+            "idf_placeholder": "@2height@",
+            "formula": "2 * height",
+            "description": "Z-origin for attic zone (Space 1)"
+        },
+        "length_half": {
+            "idf_placeholder": "@length/2@",
+            "formula": "length / 2",
+            "description": "Midpoint of building depth (roof ridge line)"
+        },
+        "windowsouth_x1": {
+            "idf_placeholder": "@windowsouth_x1@",
+            "formula": "window_margin",
+            "description": "South/North window 1 left edge x-coordinate",
+            "default_window_margin": 0.5
+        },
+        "windowsouth_x2": {
+            "idf_placeholder": "@windowsouth_x2@",
+            "formula": "window_margin + single_window_width",
+            "description": "South/North window 1 right edge x-coordinate"
+        },
+        "windowsouth_x3": {
+            "idf_placeholder": "@windowsouth_x3@",
+            "formula": "windowsouth_x2 + window_gap",
+            "description": "South/North window 2 left edge x-coordinate",
+            "default_window_gap": 0.3
+        },
+        "windowsouth_x4": {
+            "idf_placeholder": "@windowsouth_x4@",
+            "formula": "windowsouth_x3 + single_window_width",
+            "description": "South/North window 2 right edge x-coordinate"
+        },
+        "windowsouth_x5": {
+            "idf_placeholder": "@windowsouth_x5@",
+            "formula": "windowsouth_x4 + window_gap",
+            "description": "South/North window 3 left edge x-coordinate"
+        },
+        "windowsouth_x6": {
+            "idf_placeholder": "@windowsouth_x6@",
+            "formula": "windowsouth_x5 + single_window_width",
+            "description": "South/North window 3 right edge x-coordinate"
+        },
+        "windowEast_y1": {
+            "idf_placeholder": "@windowEast_y1@",
+            "formula": "length * 0.25",
+            "description": "East/West window lower y-coordinate"
+        },
+        "windowEast_y2": {
+            "idf_placeholder": "@windowEast_y2@",
+            "formula": "length * 0.75",
+            "description": "East/West window upper y-coordinate"
+        },
+        "window_z1": {
+            "idf_placeholder": "@window_z1@",
+            "formula": "0.8 (fixed sill height)",
+            "description": "Window sill height"
+        },
+        "window_z2": {
+            "idf_placeholder": "@window_z2@",
+            "formula": "min(2.2, height - 0.3)",
+            "description": "Window head height"
+        },
+        "single_window_width": {
+            "formula": "(width - 2 * window_margin - 2 * window_gap) / 3",
+            "description": "Width of each individual south/north window pane"
+        }
+    },
+
+    "fixed_parameters": {
+        "_description": "These remain constant across all simulations",
+        "wall_construction": "25mm stucco + 200mm brick + variable insulation + 19mm gypsum",
+        "roof_construction": "Roof tiles + 25mm plywood + variable insulation",
+        "floor_construction": "Variable insulation + 100mm concrete",
+        "brick_conductivity": "1.0 W/mK",
+        "insulation_conductivity": "0.05 W/mK (all insulation layers)",
+        "cooling_setpoint": "100 C (no mechanical cooling - free-running summer)",
+        "occupancy": "4 people per zone",
+        "lighting_density": "2.5 W/m2",
+        "equipment_density": "4 W/m2",
+        "activity_level": "132 W/person (office zones)",
+        "simulation_period": "Full year (Jan 1 - Dec 31)",
+        "timestep": "6 per hour (10 min)",
+        "location": "London St James Park (51.50N, -0.13W)"
+    },
+
+    "sampling_config": {
+        "method": "Latin Hypercube Sampling",
+        "n_samples": 2000,
+        "n_samples_rationale": "Based on Westermann & Evins (2019) review: typical 100-1000+ samples per input; with 10 parameters, 2000 provides ~200 samples/input for robust surrogate training",
+        "random_seed": 42,
+        "train_test_split": {
+            "train": 0.70,
+            "validation": 0.15,
+            "test": 0.15,
+            "source": "Protocol paper (2024): 70-15-15 widely selected"
+        }
+    },
+
+    "output_variables": {
+        "primary": {
+            "TM52_criterion_1": {
+                "description": "Hours of Exceedance (He) - percentage of occupied hours where DeltaT > 1K",
+                "threshold": "He >= 3% = overheating (fail)",
+                "source": "CIBSE TM52:2013, also used in TM59:2017"
+            },
+            "TM52_criterion_2": {
+                "description": "Daily Weighted Exceedance (We) - severity-weighted sum on any single day",
+                "threshold": "We > 6 on any day = overheating (fail)",
+                "source": "CIBSE TM52:2013"
+            },
+            "TM52_criterion_3": {
+                "description": "Upper Limit Temperature - operative temp exceeds Tupp = Tmax + 4K",
+                "threshold": "Any hour exceeding Tupp = overheating (fail)",
+                "source": "CIBSE TM52:2013"
+            }
+        },
+        "secondary": {
+            "peak_operative_temperature": "Maximum operative temperature during summer (May-Sep)",
+            "annual_heating_energy": "Total heating energy consumption (kWh)",
+            "zone_mean_air_temperature": "Hourly zone mean air temperature for all zones"
+        }
+    }
+}
