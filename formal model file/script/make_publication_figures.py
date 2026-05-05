@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import argparse
+import pickle
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 from figure_config import (
     ARCHETYPE_LABELS,
@@ -15,6 +18,8 @@ from figure_config import (
     FIGURES_DIR,
     FIG_IN_TEXT_DIR,
     MODEL_COLORS,
+    MODELS_DIR,
+    PARAM_COLS,
     SURROGATE_TARGETS,
     TARGET_PLOT_META,
     ensure_dirs,
@@ -163,46 +168,46 @@ def plot_shap_global(archetype: str) -> None:
     savefig(fig, FIG_IN_TEXT_DIR / f"{archetype}_shap_all_targets.png")
 
 
-def plot_shap_beeswarm_he(archetype: str) -> None:
-    df = pd.read_csv(shap_beeswarm_he_csv(archetype))
-    features = list(
-        df.groupby("feature")["shap_value"]
-        .apply(lambda s: s.abs().mean())
-        .sort_values(ascending=False)
-        .index
-    )
-    positions = {feature: idx for idx, feature in enumerate(features)}
+def _beeswarm_output_dir(target: str) -> Path:
+    if target in {"T_op_peak", "hours_gt26_night"}:
+        return FIG_IN_TEXT_DIR
+    return FIG_APPENDIX_DIR
 
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sc = None
-    for feature in features:
-        sub = df[df["feature"] == feature]
-        vals = sub["feature_value"].to_numpy(dtype=float)
-        if vals.max() > vals.min():
-            vals_norm = (vals - vals.min()) / (vals.max() - vals.min())
-        else:
-            vals_norm = vals * 0 + 0.5
-        y = positions[feature] + 0.18 * (pd.Series(vals_norm).rank(method="first") / len(sub) - 0.5)
-        sc = ax.scatter(
-            sub["shap_value"],
-            y,
-            c=vals_norm,
-            cmap="coolwarm",
-            s=10,
-            alpha=0.55,
-            edgecolors="none",
+
+def plot_shap_beeswarms(archetype: str) -> None:
+    import shap
+
+    df = pd.read_csv(results_csv(archetype))
+    df = df[df["status"] == "ok"].copy().reset_index(drop=True)
+
+    X = df[PARAM_COLS].to_numpy()
+    y = df[SURROGATE_TARGETS].to_numpy()
+
+    # Reconstruct the same held-out split used during surrogate training so the
+    # beeswarm plots reflect the saved XGBoost test-set explanations.
+    X_tv, X_test, y_tv, y_test = train_test_split(X, y, test_size=0.15, random_state=42)
+    _ = train_test_split(X_tv, y_tv, test_size=0.15 / 0.85, random_state=42)
+
+    model_dir = MODELS_DIR / archetype
+    for target in SURROGATE_TARGETS:
+        with open(model_dir / f"xgb_{target}.pkl", "rb") as f:
+            model = pickle.load(f)
+
+        explainer = shap.TreeExplainer(model)
+        shap_vals = explainer.shap_values(X_test)
+
+        plt.figure(figsize=(8, 6))
+        shap.summary_plot(
+            shap_vals,
+            X_test,
+            feature_names=PARAM_COLS,
+            show=False,
+            plot_size=None,
+            max_display=len(PARAM_COLS),
         )
-    ax.set_yticks(range(len(features)))
-    ax.set_yticklabels(features)
-    ax.invert_yaxis()
-    ax.set_xlabel("SHAP value")
-    ax.set_ylabel("Feature")
-    ax.grid(alpha=0.25)
-    cbar = fig.colorbar(sc, ax=ax, label="Feature value")
-    cbar.set_ticks([0.0, 1.0])
-    cbar.set_ticklabels(["Low", "High"])
-    out_dir = FIG_IN_TEXT_DIR if archetype == "detached" else FIG_APPENDIX_DIR
-    savefig(fig, out_dir / f"{archetype}_shap_He_worst.png")
+        plt.tight_layout()
+        out_dir = _beeswarm_output_dir(target)
+        savefig(plt.gcf(), out_dir / f"{archetype}_shap_{target}.png")
 
 
 def plot_rf_importance(archetype: str) -> None:
@@ -261,14 +266,22 @@ figures.
 - `in_text/detached_parity_xgb_vs_mlp.png`
 - `in_text/detached_shap_all_targets.png`
 - `in_text/semi_shap_all_targets.png`
-- `in_text/detached_shap_He_worst.png`
+- `in_text/detached_shap_T_op_peak.png`
+- `in_text/semi_shap_T_op_peak.png`
+- `in_text/detached_shap_hours_gt26_night.png`
+- `in_text/semi_shap_hours_gt26_night.png`
 
 ## Recommended appendix figures
 
 - `appendix/semi_parity_xgb_vs_mlp.png`
 - `appendix/detached_rf_importance.png`
 - `appendix/semi_rf_importance.png`
+- `appendix/detached_shap_He_worst.png`
 - `appendix/semi_shap_He_worst.png`
+- `appendix/detached_shap_We_max_worst.png`
+- `appendix/semi_shap_We_max_worst.png`
+- `appendix/detached_shap_heat_kWh_m2.png`
+- `appendix/semi_shap_heat_kWh_m2.png`
 """
     (FIGURES_DIR / "FIGURE_MANIFEST.md").write_text(manifest)
 
@@ -284,7 +297,7 @@ def main() -> None:
         plot_shap_global(archetype)
         plot_rf_importance(archetype)
         plot_parity(archetype)
-        plot_shap_beeswarm_he(archetype)
+        plot_shap_beeswarms(archetype)
     plot_combined_model_comparison()
     write_criterion3_diagnostic()
     write_manifest()

@@ -17,11 +17,19 @@ figures.
 - `in_text/detached_parity_xgb_vs_mlp.png`
 - `in_text/detached_shap_all_targets.png`
 - `in_text/semi_shap_all_targets.png`
-- `in_text/detached_shap_He_worst.png`
+- `in_text/detached_shap_T_op_peak.png`
+- `in_text/semi_shap_T_op_peak.png`
+- `in_text/detached_shap_hours_gt26_night.png`
+- `in_text/semi_shap_hours_gt26_night.png`
 
 ## Recommended appendix figures
 
 - `appendix/semi_parity_xgb_vs_mlp.png`
 - `appendix/detached_rf_importance.png`
 - `appendix/semi_rf_importance.png`
+- `appendix/detached_shap_He_worst.png`
 - `appendix/semi_shap_He_worst.png`
+- `appendix/detached_shap_We_max_worst.png`
+- `appendix/semi_shap_We_max_worst.png`
+- `appendix/detached_shap_heat_kWh_m2.png`
+- `appendix/semi_shap_heat_kWh_m2.png`
