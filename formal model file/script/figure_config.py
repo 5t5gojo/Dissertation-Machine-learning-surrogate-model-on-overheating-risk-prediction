@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 
-ROOT = Path("/Users/hlbao/Projects/dissertation/formal model file")
+ROOT = Path(__file__).resolve().parents[1]
 OUT_BASE = ROOT / "output"
 
 RESULTS_DIR = OUT_BASE / "results"
@@ -62,7 +62,7 @@ TARGET_PLOT_META = {
     },
     "We_max_worst": {
         "short": "We_max_worst",
-        "label": "Daily weighted exceedance",
+        "label": "Stepped daily exceedance proxy",
         "color": "#E6AB02",
         "threshold": 6.0,
         "threshold_label": "TM52 C2 = 6",
@@ -83,7 +83,7 @@ TARGET_PLOT_META = {
     },
     "heat_kWh_m2": {
         "short": "heat_kWh_m2",
-        "label": "Heating energy (kWh/m²·yr)",
+        "label": "Ideal heating demand (kWh/m²·yr)",
         "color": "#1B9E77",
         "threshold": None,
         "threshold_label": None,
