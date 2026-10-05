@@ -1,0 +1,85 @@
+{
+  "variant": "corrected_v2_rounded",
+  "ready": true,
+  "prepared_utc": "2026-10-04T18:55:55.558896+00:00",
+  "source": "/Users/hlbao/Projects/dissertation/02_conference/07_corrected_full/2026-10-04_combined_v2",
+  "rounding_audit": "/Users/hlbao/Projects/dissertation/02_conference/08_metric_rounding/2026-10-05_corrected_v2/results",
+  "cases": 8000,
+  "changed_training_targets": [
+    "He_worst"
+  ],
+  "changed_diagnostics": [
+    "C3",
+    "same_zone_joint"
+  ],
+  "target_storage": "C1 saved to 4 decimal percentage points, as in corrected V2",
+  "original_protocol": "/Users/hlbao/Projects/dissertation/02_conference/09_rounded_training/2026-10-05_corrected_v2/inputs/original_model_protocol.json",
+  "input_hashes": {
+    "frozen_code/corrected_report.py": "56eb1fc7e2229592701269e10e5b863545c1f7612196be6d09665524015d1b3c",
+    "frozen_code/revision_common.py": "0c3e7c43daacdd921ae636c447ecd95435551c88ee90a286e97f11d6a73e9d6b",
+    "frozen_code/revision_model_eval.py": "b73abb3f0b0fe2d89614d64bd9f02a6e155de4742b89e8a417177e839db1b2c6",
+    "frozen_code/dsy_model_eval.py": "36e6f059af50b4490e9dc6cb8d1e2dacdcac8c7d259641573c0ec390da5f4426",
+    "frozen_code/corrected_train_models.py": "3523ea90228f21f9703d44b4aa5aff2e24090686384d7d97542dca36f6dcffce",
+    "inputs/original_model_protocol.json": "9b9b7000485c39c3cbf6c8ee9735dc6d0a1a4d0893dda6093129d4b9980f7c1a",
+    "datasets/TMYx/training_semi.csv": "edaffac0465a2eeefb6bf6cd55a16f4cce8f65e6d8f4247d11f6545a8e450ddd",
+    "datasets/TMYx/training_detached.csv": "a3dd5698e27f09d75f34e5d482618cd38101bf3e99e29e870a6d4515e06b7a9b",
+    "datasets/TMYx/complete.json": "f64145a2bceda993bacbfe5775d70449d35e8a34e8f681050ef8572f754ac249",
+    "datasets/TMYx/results.csv": "c82c5825449bbc7e69ecda5f7871bcbb774a214f7f4a11d0e7f4d6dee0ee0fe2",
+    "datasets/DSY1/training_semi.csv": "b77fbccdcc93193617fb6891e32a03c7c2cc561fbd1ea9ba3de31ada2a90e6ad",
+    "datasets/DSY1/training_detached.csv": "5aacba9f64de07f3f064292ce85726daf899aad462ff2640cf3e1433177d4aee",
+    "datasets/DSY1/complete.json": "3f44ab893de25a1ee634da16016eca692030ac5b91b30f702993158aefc6a956",
+    "datasets/DSY1/results.csv": "cd86e205f9f8c864bfb5875f58c4d1587bf9caa0d24b7880f097a7ed135f26d9",
+    "inputs/splits/detached/seed_567/split.csv": "f6f9dd3f6d9c8780564f411c3a7513ae3c818ed08b5f1aefe744893394acf6d5",
+    "inputs/splits/detached/seed_202/split.csv": "0876a83cdaec7172d3986fb0396a65e15b26444cc919196263b36f2843d0251c",
+    "inputs/splits/detached/seed_42/split.csv": "dec0df39c634a082a0c3f6eb2c4fddcd354acad0391dcd71492b59b185750e08",
+    "inputs/splits/detached/seed_340/split.csv": "d1f1f2b4ba859f0487aae01498d5ae1306cd22f2221088f001cdf2f13dd9820c",
+    "inputs/splits/detached/seed_123/split.csv": "238e245591d3ce10a2a88e96d3b903016144d30b595a5d3e3d0c688baef214ce",
+    "inputs/splits/semi/seed_567/split.csv": "f6f9dd3f6d9c8780564f411c3a7513ae3c818ed08b5f1aefe744893394acf6d5",
+    "inputs/splits/semi/seed_202/split.csv": "0876a83cdaec7172d3986fb0396a65e15b26444cc919196263b36f2843d0251c",
+    "inputs/splits/semi/seed_42/split.csv": "dec0df39c634a082a0c3f6eb2c4fddcd354acad0391dcd71492b59b185750e08",
+    "inputs/splits/semi/seed_340/split.csv": "d1f1f2b4ba859f0487aae01498d5ae1306cd22f2221088f001cdf2f13dd9820c",
+    "inputs/splits/semi/seed_123/split.csv": "238e245591d3ce10a2a88e96d3b903016144d30b595a5d3e3d0c688baef214ce",
+    "inputs/protected_sources.json": "9004467c3a803ccb2143b0b82b1b506b9ec25d5d718a77ccbc3a7121d9f0da25"
+  },
+  "protected_files": 4736,
+  "group_checks": [
+    {
+      "weather": "TMYx",
+      "archetype": "detached",
+      "n": 2000,
+      "C1_gt3": 1,
+      "C3_nonzero": 0,
+      "same_zone_joint": 1,
+      "other_four_targets_and_features": "identical source CSV tokens"
+    },
+    {
+      "weather": "TMYx",
+      "archetype": "semi",
+      "n": 2000,
+      "C1_gt3": 0,
+      "C3_nonzero": 0,
+      "same_zone_joint": 0,
+      "other_four_targets_and_features": "identical source CSV tokens"
+    },
+    {
+      "weather": "DSY1",
+      "archetype": "detached",
+      "n": 2000,
+      "C1_gt3": 46,
+      "C3_nonzero": 1851,
+      "same_zone_joint": 1851,
+      "other_four_targets_and_features": "identical source CSV tokens"
+    },
+    {
+      "weather": "DSY1",
+      "archetype": "semi",
+      "n": 2000,
+      "C1_gt3": 18,
+      "C3_nonzero": 1508,
+      "same_zone_joint": 1508,
+      "other_four_targets_and_features": "identical source CSV tokens"
+    }
+  ],
+  "no_new_simulations": true,
+  "no_canonical_overwrites": true
+}

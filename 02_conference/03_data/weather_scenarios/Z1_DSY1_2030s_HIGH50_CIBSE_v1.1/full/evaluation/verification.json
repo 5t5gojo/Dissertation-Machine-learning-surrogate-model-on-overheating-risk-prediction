@@ -1,0 +1,8 @@
+{
+  "prediction_rows": 45000,
+  "trials": 180,
+  "all_model_metrics_recomputed": true,
+  "original_splits_matched": true,
+  "report_sha256": "d23955b4986beb7518bdeeaef2d698ba85c23322fce4170f967447b846f23e6a",
+  "script_sha256": "25f747796b7e6834dc50ada4d0146d6d481fbccba611b15d88179a9194de22a1"
+}

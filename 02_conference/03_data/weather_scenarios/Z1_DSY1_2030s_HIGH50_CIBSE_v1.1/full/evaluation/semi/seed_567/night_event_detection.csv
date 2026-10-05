@@ -1,0 +1,4 @@
+model,n_test,n_nonzero,test_zero_fraction,threshold,val_balanced_accuracy,precision,recall,f1,balanced_accuracy,roc_auc,average_precision,tn,fp,fn,tp,status,archetype,seed
+RF,300,300,0.0,,,,,,,,,,,,,not_identifiable_single_class_validation,semi,567
+XGBoost,300,300,0.0,,,,,,,,,,,,,not_identifiable_single_class_validation,semi,567
+MLP,300,300,0.0,,,,,,,,,,,,,not_identifiable_single_class_validation,semi,567

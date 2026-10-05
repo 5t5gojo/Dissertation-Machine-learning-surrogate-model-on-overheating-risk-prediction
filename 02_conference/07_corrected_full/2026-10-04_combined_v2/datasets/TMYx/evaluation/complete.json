@@ -1,0 +1,7 @@
+{
+  "all_ok": true,
+  "trials": 180,
+  "predictions": 45000,
+  "performance_sha256": "eb6f261f2929b3eef6f0f7e2b9e8a424a53aceca0ce229f6a60de022182d1a95",
+  "verification_sha256": "b3a99ede2a6c2aa8cd18a3771b277c84785dec9f6bb7ac647961373cef00110c"
+}

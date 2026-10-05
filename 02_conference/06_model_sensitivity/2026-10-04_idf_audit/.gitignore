@@ -1,0 +1,5 @@
+# Local audit backup contains licensed weather and manuscript snapshots.
+/backup/
+/inputs/*.epw
+/runs/
+__pycache__/

@@ -1,0 +1,12 @@
+{
+  "preparation_verified": true,
+  "audited": 4000,
+  "training_hashes": {
+    "detached": "a3dd5698e27f09d75f34e5d482618cd38101bf3e99e29e870a6d4515e06b7a9b",
+    "semi": "edaffac0465a2eeefb6bf6cd55a16f4cce8f65e6d8f4247d11f6545a8e450ddd"
+  },
+  "source": "Existing corrected V2 hourlies; rounded audit targets",
+  "training_C1": "round(100 * count(rint(DeltaT)>=1) / occupied summer hours, 4)",
+  "diagnostic_C3": "count(rint(DeltaT)>4)",
+  "no_new_simulations": true
+}

@@ -1,0 +1,11 @@
+archetype,target,rank_spearman,xgb_top_feature,mlp_top_feature
+detached,He_worst,0.8813186813186813,g_value,g_value
+detached,T_op_peak,0.9956043956043955,wwr,wwr
+detached,We_max_worst,0.9868131868131869,wwr,wwr
+detached,heat_kWh_m2,0.9780219780219781,wwr,wwr
+detached,hours_gt26_night,0.9516483516483516,g_value,g_value
+semi,He_worst,0.9912087912087912,wwr,wwr
+semi,T_op_peak,0.9868131868131869,wwr,wwr
+semi,We_max_worst,0.9912087912087912,wwr,wwr
+semi,heat_kWh_m2,0.9824175824175824,wwr,wwr
+semi,hours_gt26_night,0.9516483516483516,g_value,g_value

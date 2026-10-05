@@ -1,0 +1,6 @@
+{
+  "cases": 8000,
+  "severe_or_fatal": 0,
+  "added_warnings": [],
+  "note": "Counts include ReadVarsESO warning lines, which are outside the EnergyPlus final warning total."
+}

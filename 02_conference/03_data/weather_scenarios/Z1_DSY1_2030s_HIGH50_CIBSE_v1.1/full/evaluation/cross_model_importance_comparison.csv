@@ -1,0 +1,11 @@
+archetype,target,rank_spearman
+detached,He_worst,0.9472527472527472
+detached,T_op_peak,0.9956043956043955
+detached,We_max_worst,0.9824175824175824
+detached,heat_kWh_m2,0.9824175824175824
+detached,hours_gt26_night,0.9472527472527472
+semi,He_worst,0.9736263736263736
+semi,T_op_peak,0.9824175824175824
+semi,We_max_worst,0.9780219780219781
+semi,heat_kWh_m2,0.9912087912087912
+semi,hours_gt26_night,0.9648351648351648

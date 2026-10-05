@@ -66,8 +66,8 @@ def plot_target_distributions(archetype: str) -> None:
         stats = [f"Median = {vals.median():.2f}"]
         if meta["threshold"] is not None:
             ax.axvline(meta["threshold"], color="#B22222", ls=":", lw=1.4)
-            fail_rate = 100 * (vals >= meta["threshold"]).mean()
-            stats.append(f"Fail proxy = {fail_rate:.1f}%")
+            exceedance_rate = 100 * (vals > meta["threshold"]).mean()
+            stats.append(f"Above reference = {exceedance_rate:.2f}%")
         ax.text(
             0.98,
             0.96,

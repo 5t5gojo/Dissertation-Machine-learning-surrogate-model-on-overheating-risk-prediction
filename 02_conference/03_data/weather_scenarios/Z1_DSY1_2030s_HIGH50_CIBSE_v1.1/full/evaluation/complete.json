@@ -1,0 +1,12 @@
+{
+  "trials": 180,
+  "prediction_rows": 45000,
+  "seeds": [
+    42,
+    123,
+    202,
+    340,
+    567
+  ],
+  "performance_sha256": "50325c903b3f4dc85649caf015024934e2c0d0d2b56a743be8dfbb05aa929e1f"
+}

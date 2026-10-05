@@ -1,0 +1,7 @@
+{
+  "stage": "smoke",
+  "runs": 18,
+  "all_ok": true,
+  "elapsed_sec": 8.751962750102393,
+  "finished_utc": "2026-10-04T01:20:32.039173+00:00"
+}

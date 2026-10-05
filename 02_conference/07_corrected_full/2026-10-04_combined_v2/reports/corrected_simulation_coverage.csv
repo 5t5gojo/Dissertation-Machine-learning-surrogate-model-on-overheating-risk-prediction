@@ -1,0 +1,5 @@
+archetype,n,C1_gt3,C2_gt6,C3_nonzero,same_zone_two_of_three_proxy,night_zero_pct,night_summer_gt32,night_annual_gt32,median_peak_C,max_peak_C,median_heating_kWh_m2,max_cooling_kWh,weather
+detached,2000,0,784,0,0,44.800000000000004,5,16,29.465,31.911,76.09,0.0,TMYx
+semi,2000,0,392,0,0,55.35,0,17,29.122,31.877,52.593599999999995,0.0,TMYx
+detached,2000,15,2000,1969,1969,0.0,71,82,34.207,35.835,69.83055,0.0,DSY1
+semi,2000,3,2000,1822,1822,0.0,62,74,33.856,35.467,48.486999999999995,0.0,DSY1

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "cases": 8000,
+  "zone_series": 16000,
+  "raw_case_matches": 8000,
+  "zone_boundary_checks": 16000,
+  "frozen_files_verified": 4725,
+  "hourly_files_verified": 8000,
+  "run_idfs_verified": 8000,
+  "source_results_preserved": true,
+  "new_simulations": 0,
+  "retrained_models": 0,
+  "script_sha256": "29cb2b66913b3170006b9c82c934f648c5674a273f9c7838b61fbd76b9ed5180",
+  "python": "3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]",
+  "numpy": "1.26.4",
+  "pandas": "2.2.2",
+  "finished_utc": "2026-10-04T17:47:47.076906+00:00",
+  "elapsed_seconds": 112.90525804192293
+}

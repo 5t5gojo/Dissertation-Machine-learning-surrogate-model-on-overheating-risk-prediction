@@ -1,0 +1,16 @@
+{
+  "all_ok": true,
+  "cases": 8000,
+  "newly_simulated": 7680,
+  "pilot_reused": 320,
+  "trials": 360,
+  "held_out_prediction_rows": 90000,
+  "trained_metric_rows_verified": 300,
+  "shap_arrays_verified": 100,
+  "original_sources_unchanged": true,
+  "manuscripts_updated": false,
+  "report_sha256": "c6d857576fcb4bba0e0b792d74dfb1503e763920b3d66629ef9046bdb26a9f53",
+  "report_script_sha256": "56eb1fc7e2229592701269e10e5b863545c1f7612196be6d09665524015d1b3c",
+  "artifact_manifest_sha256": "9d65ac5a5511aa512160ab1618e495fdd9763b018d929a9d536e48f5d5170fa6",
+  "indexed_artifacts": 703
+}

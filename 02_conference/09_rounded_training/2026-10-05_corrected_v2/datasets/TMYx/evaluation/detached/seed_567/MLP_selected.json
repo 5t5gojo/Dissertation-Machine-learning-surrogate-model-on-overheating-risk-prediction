@@ -1,0 +1,8 @@
+{
+  "family": "MLP",
+  "candidate": 4,
+  "normalized_val_mse": 0.05078032412127477,
+  "seconds": 0.566804499947466,
+  "epochs": 163,
+  "config": "{\"weight_decay\": 0.0001, \"lr\": 0.002, \"hidden\": [64, 32], \"dropout\": 0.1, \"batch_size\": 128}"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "pid": 96080,
+  "started_utc": "2026-10-04T18:58:34.298285+00:00",
+  "updated_utc": "2026-10-04T19:01:26.241227+00:00",
+  "completed_splits": {
+    "TMYx": 10,
+    "DSY1": 10
+  },
+  "total_splits": 20,
+  "total_candidate_trials": 360,
+  "new_simulations": 0
+}

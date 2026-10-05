@@ -1,0 +1,12 @@
+{
+  "REPORT.md": "9565e0952fc625469d913ca7fec6918515395af73c10bfc5edd4b79e46a73c35",
+  "paired_weather_comparison.csv": "dfb8f8e7d540d114ae69d437bd3a240834a37fd7bddbe8bad83ef4ffac6ea5b5",
+  "case_comparison.csv": "0e29a31908d26e4c7b58de08121078fc5fc515334ebd23d6acee4fbd2dd618a9",
+  "flag_transitions.csv": "e9c06ab659db60e763712cfebe9f862e4d31f4da6d32ec30d2a39b2ce4b291d9",
+  "zone_comparison.csv": "51858d7edc14f3d310174dc90267523ae81a35b8aa9f312844fe6379192a354e",
+  "protocol.json": "380ec844af41049cce626c30c10ddf666a134f2ac0cee9f55f53af1bed31ff64",
+  "source_hashes.json": "fd569200130e13667683d56bfe4459884f041d9635c51be563268c2dacea9054",
+  "verification.json": "4f0e70a0d786d10414c3c6a5a094e15eef040e0e99ef3fb942ee9c5819cce9c6",
+  "changed_flag_cases.csv": "a55877c3d4b54143516c3aa47a748d3e09e1d70b2b287e822bf78a58261a1ae6",
+  "group_summary.csv": "76a2354c089b3c671ecfaf12123f899b77d67aecd7c3af50b30315c85fe6aed1"
+}

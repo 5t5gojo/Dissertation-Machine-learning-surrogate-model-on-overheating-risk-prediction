@@ -1,0 +1,12 @@
+{
+  "all_ok": true,
+  "audited": 4000,
+  "training_hashes": {
+    "detached": "5abb6a5c6e09aa2f029724f78a6f0c5e1f57f6d1005e8583cd691b8280194325",
+    "semi": "835d881e5e73a1d7e69137830f6f3bc7d8d661eaf8c78b941638007b7103d05e"
+  },
+  "source_protocol_sha256": "52b56dcd0d4c6e18f54614589afee0e174c92b05d332d1681527dfb59c619b17",
+  "reused_pilot_cases": 160,
+  "finished_utc": "2026-10-04T02:49:22.630966+00:00",
+  "elapsed_seconds": 1707.5249889169354
+}

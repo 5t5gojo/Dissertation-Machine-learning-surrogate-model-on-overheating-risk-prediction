@@ -1,0 +1,13 @@
+archetype,target,mean_paired_change,median_paired_change,fraction_increased
+detached,He_worst,1.4343370999999998,1.4161,1.0
+detached,We_max_worst,39.332,39.0,1.0
+detached,T_op_peak,4.761241,4.800000000000001,1.0
+detached,hours_gt26_night,14.243,13.0,1.0
+detached,heat_kWh_m2,-13.06776805,-7.175250000000002,0.178
+detached,hours_C3_worst,11.605,8.0,0.9995
+semi,He_worst,1.4093635999999998,1.3889,1.0
+semi,We_max_worst,38.396,38.0,1.0
+semi,T_op_peak,4.8276075,4.873000000000001,1.0
+semi,hours_gt26_night,13.553,12.0,1.0
+semi,heat_kWh_m2,-8.06424435,-4.766349999999999,0.155
+semi,hours_C3_worst,7.934,6.0,0.997

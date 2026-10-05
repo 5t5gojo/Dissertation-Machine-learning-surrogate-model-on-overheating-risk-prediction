@@ -1,0 +1,200 @@
+{
+  "variant": "combined_v2",
+  "weather": "TMYx",
+  "seeds": [
+    42,
+    123,
+    202,
+    340,
+    567
+  ],
+  "candidates": {
+    "RF": [
+      {
+        "n_estimators": 200,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": 12
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt",
+        "max_depth": null
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": null
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 1.0,
+        "max_depth": 24
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "max_depth": 12
+      }
+    ],
+    "XGBoost": [
+      {
+        "n_estimators": 400,
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 3,
+        "reg_alpha": 0.1,
+        "reg_lambda": 1.0
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 10.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 200,
+        "min_child_weight": 1,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.7,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 600,
+        "min_child_weight": 5,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "colsample_bytree": 0.7
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.0,
+        "n_estimators": 600,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.1,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 4,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    ],
+    "MLP": [
+      {
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.2,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.001,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 32
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.2,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.001,
+        "lr": 0.001,
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.002,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 1e-05,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.1,
+        "batch_size": 64
+      }
+    ]
+  },
+  "epochs": 300,
+  "permutation_repeats": 5,
+  "objective": "Mean validation MSE / training target variance over five outputs",
+  "budget": "Equal candidate pipeline evaluations; not equal wall time or fitted estimator count",
+  "data_hash": {
+    "detached": "5abb6a5c6e09aa2f029724f78a6f0c5e1f57f6d1005e8583cd691b8280194325",
+    "semi": "835d881e5e73a1d7e69137830f6f3bc7d8d661eaf8c78b941638007b7103d05e"
+  },
+  "adapter_hash": "3523ea90228f21f9703d44b4aa5aff2e24090686384d7d97542dca36f6dcffce",
+  "evaluator_hash": "b73abb3f0b0fe2d89614d64bd9f02a6e155de4742b89e8a417177e839db1b2c6",
+  "original_protocol_hash": "9b9b7000485c39c3cbf6c8ee9735dc6d0a1a4d0893dda6093129d4b9980f7c1a",
+  "source_simulation_protocol_hash": "52b56dcd0d4c6e18f54614589afee0e174c92b05d332d1681527dfb59c619b17",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "sklearn": "1.4.2",
+    "torch": "2.10.0",
+    "xgboost": "3.0.5"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "single_class_discrimination": "NA, not perfect classification"
+}

@@ -1,0 +1,81 @@
+run_id,cohort,reason
+run_0015,random64,Fixed random sample without replacement
+run_0023,random64,Fixed random sample without replacement
+run_0044,random64,Fixed random sample without replacement
+run_0063,random64,Fixed random sample without replacement
+run_0092,random64,Fixed random sample without replacement
+run_0095,random64,Fixed random sample without replacement
+run_0169,random64,Fixed random sample without replacement
+run_0171,random64,Fixed random sample without replacement
+run_0172,random64,Fixed random sample without replacement
+run_0189,random64,Fixed random sample without replacement
+run_0203,random64,Fixed random sample without replacement
+run_0208,random64,Fixed random sample without replacement
+run_0298,random64,Fixed random sample without replacement
+run_0302,random64,Fixed random sample without replacement
+run_0421,random64,Fixed random sample without replacement
+run_0456,random64,Fixed random sample without replacement
+run_0499,random64,Fixed random sample without replacement
+run_0500,random64,Fixed random sample without replacement
+run_0745,random64,Fixed random sample without replacement
+run_0785,random64,Fixed random sample without replacement
+run_0788,random64,Fixed random sample without replacement
+run_0821,random64,Fixed random sample without replacement
+run_0833,random64,Fixed random sample without replacement
+run_0841,random64,Fixed random sample without replacement
+run_0844,random64,Fixed random sample without replacement
+run_0887,random64,Fixed random sample without replacement
+run_1083,random64,Fixed random sample without replacement
+run_1093,random64,Fixed random sample without replacement
+run_1130,random64,Fixed random sample without replacement
+run_1192,random64,Fixed random sample without replacement
+run_1197,random64,Fixed random sample without replacement
+run_1207,random64,Fixed random sample without replacement
+run_1209,random64,Fixed random sample without replacement
+run_1248,random64,Fixed random sample without replacement
+run_1268,random64,Fixed random sample without replacement
+run_1274,random64,Fixed random sample without replacement
+run_1295,random64,Fixed random sample without replacement
+run_1311,random64,Fixed random sample without replacement
+run_1388,random64,Fixed random sample without replacement
+run_1391,random64,Fixed random sample without replacement
+run_1434,random64,Fixed random sample without replacement
+run_1476,random64,Fixed random sample without replacement
+run_1497,random64,Fixed random sample without replacement
+run_1525,random64,Fixed random sample without replacement
+run_1560,random64,Fixed random sample without replacement
+run_1586,random64,Fixed random sample without replacement
+run_1590,random64,Fixed random sample without replacement
+run_1644,random64,Fixed random sample without replacement
+run_1646,random64,Fixed random sample without replacement
+run_1649,random64,Fixed random sample without replacement
+run_1739,random64,Fixed random sample without replacement
+run_1746,random64,Fixed random sample without replacement
+run_1748,random64,Fixed random sample without replacement
+run_1757,random64,Fixed random sample without replacement
+run_1759,random64,Fixed random sample without replacement
+run_1762,random64,Fixed random sample without replacement
+run_1809,random64,Fixed random sample without replacement
+run_1813,random64,Fixed random sample without replacement
+run_1851,random64,Fixed random sample without replacement
+run_1864,random64,Fixed random sample without replacement
+run_1865,random64,Fixed random sample without replacement
+run_1866,random64,Fixed random sample without replacement
+run_1911,random64,Fixed random sample without replacement
+run_1952,random64,Fixed random sample without replacement
+run_0000,stress16,TMYx/semi maximum hours_C3_worst
+run_0029,stress16,TMYx/semi maximum hours_gt26_night
+run_0132,stress16,Minimum roofInsulationThickness
+run_0239,stress16,TMYx/detached maximum hours_gt26_night
+run_0241,stress16,TMYx/semi maximum heat_kWh_m2
+run_0492,stress16,Maximum wwr
+run_0628,stress16,Maximum orientation
+run_0768,stress16,TMYx/detached maximum T_op_peak
+run_1025,stress16,Minimum width
+run_1199,stress16,Maximum wof
+run_1214,stress16,TMYx/detached maximum heat_kWh_m2
+run_1416,stress16,Minimum wof
+run_1506,stress16,DSY1/detached maximum hours_C3_worst
+run_1521,stress16,Minimum orientation
+run_1801,stress16,Maximum roofInsulationThickness
+run_1941,stress16,DSY1/semi maximum T_op_peak

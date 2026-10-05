@@ -1,0 +1,7 @@
+{
+  "pid": 96080,
+  "launched_utc": "2026-10-04T18:58:33.616401+00:00",
+  "root": "/Users/hlbao/Projects/dissertation/02_conference/09_rounded_training/2026-10-05_corrected_v2",
+  "workers_per_weather": 3,
+  "weather_jobs": 2
+}

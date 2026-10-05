@@ -1,0 +1,5 @@
+weather,archetype,mean_delta_peak_C,mean_delta_night_hours,mean_delta_heating_kWh_m2
+DSY1,detached,-0.5552135,3.081,-2.7206420999999996
+DSY1,semi,-0.68876,2.931,-4.2543079
+TMYx,detached,-0.4570765,0.4475,-3.13992105
+TMYx,semi,-0.476465,-0.1935,-3.24662835

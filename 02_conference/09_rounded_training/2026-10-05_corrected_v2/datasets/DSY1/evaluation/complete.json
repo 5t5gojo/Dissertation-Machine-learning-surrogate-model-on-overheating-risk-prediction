@@ -1,0 +1,8 @@
+{
+  "all_ok": true,
+  "variant": "corrected_v2_rounded",
+  "trials": 180,
+  "predictions": 45000,
+  "performance_sha256": "06ddb8cabdab4ad7cc888103a7fcbdcefd60f27bb24857c50a1f041a5a2603eb",
+  "verification_sha256": "2af6cae2f8e61ec5f301c69e26379dae6dc8321ffd538f770eb56953eb537c0d"
+}

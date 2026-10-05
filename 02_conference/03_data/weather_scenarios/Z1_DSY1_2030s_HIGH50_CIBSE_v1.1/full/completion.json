@@ -1,0 +1,7 @@
+{
+  "runs": 4000,
+  "all_ok": true,
+  "baseline_files_unchanged": true,
+  "completed_by": "Independent post-run recovery audit",
+  "finalization_manifest": "finalization.json"
+}

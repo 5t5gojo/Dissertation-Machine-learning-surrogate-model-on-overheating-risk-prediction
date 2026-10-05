@@ -1,0 +1,5 @@
+,He_worst,He_worst,He_worst,We_max_worst,We_max_worst,We_max_worst,T_op_peak,T_op_peak,T_op_peak,hours_gt26_night,hours_gt26_night,hours_gt26_night,heat_kWh_m2,heat_kWh_m2,heat_kWh_m2,hours_C3_worst,hours_C3_worst,hours_C3_worst,hours_gt26_night_annual,hours_gt26_night_annual,hours_gt26_night_annual
+,median,min,max,median,min,max,median,min,max,median,min,max,median,min,max,median,min,max,median,min,max
+archetype,,,,,,,,,,,,,,,,,,,,,
+detached,1.6612,1.171,5.1198,49.0,34.0,71.0,34.756,32.854,36.433,13.0,7,112,71.9212,10.4696,664.5565,8.0,0,57,13.0,7,233
+semi,1.5523,1.0076,3.7037,46.0,29.0,67.0,34.489999999999995,32.446,36.006,13.0,7,69,51.18515,5.6662,521.8296,6.0,0,36,13.0,7,214

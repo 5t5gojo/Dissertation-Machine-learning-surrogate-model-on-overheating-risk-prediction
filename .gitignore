@@ -23,10 +23,48 @@ model file/
 1 1.idf
 review_bundle_2026-04-17.zip
 *.zip
+*.doc
 *.docx
 *.pdf
 *.pptx
 *.Rhistory
+
+# Licensed CIBSE weather: keep local, do not publish the supplied EPWs.
+/CIBSE_weather_files_z1/
+/CIBSE_weather_files_z1.zip
+# DSY hourly runs are reproducible, large and local-only.
+/02_conference/03_data/weather_scenarios/**/runs/
+
+# Public repository contains code and derived results, not local manuscripts.
+/01_dissertation/01_manuscript/
+/02_conference/01_manuscript/
+/formal model file/output/reviewer_revision/paper
+/01_documents
+/03_supporting_materials/
+/04_earlier_experiments/
+/05_submission_snapshots/
+/FOLDER_LAYOUT_*.json
+/FOLDER_MOVE_MANIFEST_*.json
+/文件导航.md
+
+# Local correspondence and editorial notes are not research data releases.
+/02_conference/05_reviewer_feedback/manuscript_replacements.md
+/02_conference/05_reviewer_feedback/response_to_reviewers.md
+/02_conference/05_reviewer_feedback/reviewer_checklist.md
+/02_conference/05_reviewer_feedback/评审修改说明.md
+/02_conference/05_reviewer_feedback/layout_verification_*.md
+
+# Corrected/rounded experiments retain these large or licensed files locally.
+/02_conference/**/*.epw
+/02_conference/**/*.ddy
+/02_conference/**/*.stat
+/02_conference/**/runs/
+/02_conference/**/inputs/idfs/
+/02_conference/**/*.joblib
+/02_conference/**/*.pt
+/02_conference/**/*.lock
+/02_conference/**/*.log
+/02_conference/**/eplusout.*
 
 # Editable drafts not needed for the code/results repo
 dissertation (1).pdf
@@ -41,11 +79,10 @@ formal model file/output/runs/
 # Archived intermediate clutter
 formal model file/output/archive/
 formal model file/script/archive/
-formal model file/script/work.ipynb
 formal model file/full context1.docx
 formal model file/parameter_table_v8.docx
 formal model file/semidetached.idf
 
-# Keep the maintained LaTeX project, ignore loose legacy tex copies at repo root
+# Legacy LaTeX sources are not part of this code/results repository.
 /main.tex
 /main3.tex

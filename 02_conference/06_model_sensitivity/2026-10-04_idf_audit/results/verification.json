@@ -1,0 +1,10 @@
+{
+  "source_paths_unchanged": 8020,
+  "source_hourlies_unchanged": 320,
+  "unique_successful_runs": 1452,
+  "controls_exact": true,
+  "independent_postprocessors": true,
+  "backup_sha256": "3f208e44c33cf1e3cb539d7ca118db958a55f10628aa6da41ed6b97ebea47c32",
+  "report_script_sha256": "ccd5fef3a6eef592b376f6c1741ef810dd8404788995bb4449286dd8f9a797ef",
+  "paired_changes_sha256": "4140a9605f0bcad2e9388cbcbfc4fd6944bbe3d3eaeb411b243874e6d6c1baf5"
+}

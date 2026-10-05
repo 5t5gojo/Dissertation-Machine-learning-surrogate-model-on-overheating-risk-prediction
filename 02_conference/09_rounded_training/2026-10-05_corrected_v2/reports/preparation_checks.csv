@@ -1,0 +1,5 @@
+weather,archetype,n,C1_gt3,C3_nonzero,same_zone_joint,other_four_targets_and_features
+TMYx,detached,2000,1,0,1,identical source CSV tokens
+TMYx,semi,2000,0,0,0,identical source CSV tokens
+DSY1,detached,2000,46,1851,1851,identical source CSV tokens
+DSY1,semi,2000,18,1508,1508,identical source CSV tokens

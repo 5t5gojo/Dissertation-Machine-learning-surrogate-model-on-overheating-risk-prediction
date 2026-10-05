@@ -1,0 +1,8 @@
+{
+  "family": "XGBoost",
+  "candidate": 1,
+  "normalized_val_mse": 0.10343244674325791,
+  "seconds": 1.183987041004002,
+  "epochs": 0,
+  "config": "{\"subsample\": 0.8, \"reg_lambda\": 10.0, \"reg_alpha\": 0.5, \"n_estimators\": 400, \"min_child_weight\": 3, \"max_depth\": 6, \"learning_rate\": 0.05, \"colsample_bytree\": 0.8}"
+}

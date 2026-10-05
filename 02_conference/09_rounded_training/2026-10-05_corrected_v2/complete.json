@@ -1,0 +1,10 @@
+{
+  "all_ok": true,
+  "cases": 8000,
+  "trials": 360,
+  "predictions": 90000,
+  "trained_metric_rows_verified": 300,
+  "source_files_preserved": 4736,
+  "new_simulations": 0,
+  "finished_utc": "2026-10-04T19:01:26.241112+00:00"
+}

@@ -1,0 +1,8 @@
+{
+  "family": "RF",
+  "candidate": 3,
+  "normalized_val_mse": 0.1943430504331327,
+  "seconds": 6.644163916935213,
+  "epochs": 0,
+  "config": "{\"n_estimators\": 400, \"min_samples_leaf\": 2, \"max_features\": 0.7, \"max_depth\": null}"
+}

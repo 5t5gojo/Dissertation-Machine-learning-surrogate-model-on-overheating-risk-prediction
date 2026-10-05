@@ -1,0 +1,16 @@
+{
+  "source_root": "/Users/hlbao/Projects/dissertation/02_conference/07_corrected_full/2026-10-04_combined_v2",
+  "output_root": "/Users/hlbao/Projects/dissertation/02_conference/08_metric_rounding/2026-10-05_corrected_v2/results",
+  "script_sha256": "29cb2b66913b3170006b9c82c934f648c5674a273f9c7838b61fbd76b9ed5180",
+  "created_utc": "2026-10-04T17:45:55.746655+00:00",
+  "total_cases": 8000,
+  "rounded_mode": "nearest integer; ties to even",
+  "secondary_mode": "nearest integer; half away from zero",
+  "C2": "held fixed at original stepped definition",
+  "C1_flag": "He >3 percent, no display rounding",
+  "C3_flag": "one or more qualifying summer hours",
+  "joint": "at least two criteria in the same occupied zone",
+  "external_definition_source": "https://assets.publishing.service.gov.uk/media/5d91ca2ded915d556d8e7b64/Research_into_overheating_in_new_homes_-_phase_1.pdf",
+  "new_simulations": 0,
+  "retrained_models": 0
+}

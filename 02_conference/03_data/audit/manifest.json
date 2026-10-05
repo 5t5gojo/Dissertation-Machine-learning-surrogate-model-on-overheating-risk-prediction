@@ -1,0 +1,14 @@
+{
+  "source_root": "/Users/hlbao/Projects/dissertation/formal model file",
+  "rows_audited": 4000,
+  "data_sha256": {
+    "detached": "ed9c189320f3186cbce947554cb51a8040267815d372a1278b0d0ec533bd7a78",
+    "semi": "c17f3229de9b4e9a0c32dad4e4622adaa5f840400025e326635888819697507e"
+  },
+  "weather_sha256": "a7676adf7325bfb343f6c417192d290b066bce867e21167f03dea860d196b49e",
+  "weather_max_C": 31.0,
+  "weather_summer_max_C": 31.0,
+  "audit_script_sha256": "8c33a9e5d59f1a0ecda4e89bd5798d40cadbfb3fbcf9c705c7d54ce53efcd86c",
+  "occupancy_definition": "schedule fraction > 0",
+  "compliance_claim": false
+}

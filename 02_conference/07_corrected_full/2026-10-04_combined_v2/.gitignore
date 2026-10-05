@@ -1,0 +1,5 @@
+/weather/
+/datasets/*/runs/
+/datasets/*/evaluation/*/seed_*/*_models.joblib
+/datasets/*/evaluation/*/seed_*/*.pt
+__pycache__/

@@ -1,0 +1,198 @@
+{
+  "weather": "Z1_DSY1_2030s_HIGH50_CIBSE_v1.1",
+  "seeds": [
+    42,
+    123,
+    202,
+    340,
+    567
+  ],
+  "candidates": {
+    "RF": [
+      {
+        "n_estimators": 200,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": 12
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt",
+        "max_depth": null
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": null
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 1.0,
+        "max_depth": 24
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "max_depth": 12
+      }
+    ],
+    "XGBoost": [
+      {
+        "n_estimators": 400,
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 3,
+        "reg_alpha": 0.1,
+        "reg_lambda": 1.0
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 10.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 200,
+        "min_child_weight": 1,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.7,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 600,
+        "min_child_weight": 5,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "colsample_bytree": 0.7
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.0,
+        "n_estimators": 600,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.1,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 4,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    ],
+    "MLP": [
+      {
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.2,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.001,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 32
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.2,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.001,
+        "lr": 0.001,
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.002,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 1e-05,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.1,
+        "batch_size": 64
+      }
+    ]
+  },
+  "epochs": 300,
+  "permutation_repeats": 5,
+  "budget": "Equal candidate pipeline evaluations; not equal wall time or fitted estimator count",
+  "objective": "Mean validation MSE / training target variance over five outputs",
+  "data_hash": {
+    "detached": "5132a4d382858f2a3a230c05c4d083044c401280163f7963a89bf001ce3416dc",
+    "semi": "ae358267bb52afa55a9407de25ce58fd1dc3ff7ae87216362a1b57740c56ac9e"
+  },
+  "original_protocol_hash": "9b9b7000485c39c3cbf6c8ee9735dc6d0a1a4d0893dda6093129d4b9980f7c1a",
+  "adapter_hash": "36e6f059af50b4490e9dc6cb8d1e2dacdcac8c7d259641573c0ec390da5f4426",
+  "base_evaluator_hash": "b73abb3f0b0fe2d89614d64bd9f02a6e155de4742b89e8a417177e839db1b2c6",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "sklearn": "1.4.2",
+    "torch": "2.10.0",
+    "xgboost": "3.0.5"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "night_change": "Undefined single-class discrimination is reported as NA, not perfect performance"
+}

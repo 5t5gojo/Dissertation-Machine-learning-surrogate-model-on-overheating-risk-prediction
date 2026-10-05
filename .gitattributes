@@ -1,0 +1,4 @@
+# Preserve audited experiment bytes and hashes on every checkout.
+02_conference/** -text
+# CSV writers retain CRLF records; a carriage return is not trailing whitespace.
+*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

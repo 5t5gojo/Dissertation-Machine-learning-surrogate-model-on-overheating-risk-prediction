@@ -1,0 +1,210 @@
+{
+  "variant": "corrected_v2_rounded",
+  "weather": "TMYx",
+  "seeds": [
+    42,
+    123,
+    202,
+    340,
+    567
+  ],
+  "candidates": {
+    "RF": [
+      {
+        "n_estimators": 200,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": 12
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt",
+        "max_depth": null
+      },
+      {
+        "n_estimators": 400,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": null
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": 1.0,
+        "max_depth": 24
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 1.0,
+        "max_depth": 12
+      }
+    ],
+    "XGBoost": [
+      {
+        "n_estimators": 400,
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 3,
+        "reg_alpha": 0.1,
+        "reg_lambda": 1.0
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 10.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 200,
+        "min_child_weight": 1,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.7,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.5,
+        "n_estimators": 600,
+        "min_child_weight": 5,
+        "max_depth": 3,
+        "learning_rate": 0.03,
+        "colsample_bytree": 0.7
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.0,
+        "n_estimators": 600,
+        "min_child_weight": 3,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      {
+        "subsample": 0.8,
+        "reg_lambda": 1.0,
+        "reg_alpha": 0.1,
+        "n_estimators": 400,
+        "min_child_weight": 3,
+        "max_depth": 4,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    ],
+    "MLP": [
+      {
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.2,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 64
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.001,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 32
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.2,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.001,
+        "lr": 0.001,
+        "hidden": [
+          128,
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 0.0001,
+        "lr": 0.002,
+        "hidden": [
+          64,
+          32
+        ],
+        "dropout": 0.1,
+        "batch_size": 128
+      },
+      {
+        "weight_decay": 1e-05,
+        "lr": 0.0005,
+        "hidden": [
+          128,
+          128,
+          64
+        ],
+        "dropout": 0.1,
+        "batch_size": 64
+      }
+    ]
+  },
+  "epochs": 300,
+  "permutation_repeats": 5,
+  "objective": "Mean validation MSE / training target variance over five outputs",
+  "budget": "Equal candidate pipeline evaluations; not equal wall time or fitted estimator count",
+  "data_hash": {
+    "detached": "a3dd5698e27f09d75f34e5d482618cd38101bf3e99e29e870a6d4515e06b7a9b",
+    "semi": "edaffac0465a2eeefb6bf6cd55a16f4cce8f65e6d8f4247d11f6545a8e450ddd"
+  },
+  "adapter_hash": "3523ea90228f21f9703d44b4aa5aff2e24090686384d7d97542dca36f6dcffce",
+  "evaluator_hash": "b73abb3f0b0fe2d89614d64bd9f02a6e155de4742b89e8a417177e839db1b2c6",
+  "runner_hash": "503d91df5f5f74a67cfa5fc0129393becd2ef93fedf9ebfbb07b04617a830408",
+  "preparation_hash": "d8304c5879e14f1824901bcf66eadfb0480d697f5956b1f24e0fcfae84ddaacc",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "sklearn": "1.4.2",
+    "torch": "2.10.0",
+    "xgboost": "3.0.5"
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "hardware": {
+    "cpu": "Apple M5 Pro",
+    "memory_bytes": 51539607552,
+    "logical_cpus": 15,
+    "workers_per_weather": 3,
+    "estimator_threads": 1,
+    "training_device": "CPU"
+  },
+  "training_C1": "round(100 * count(rint(DeltaT)>=1) / occupied summer hours, 4)",
+  "diagnostic_C3": "count(rint(DeltaT)>4)",
+  "note": "Only C1 training labels change; C3 remains diagnostic. Comparisons use different C1 target definitions."
+}

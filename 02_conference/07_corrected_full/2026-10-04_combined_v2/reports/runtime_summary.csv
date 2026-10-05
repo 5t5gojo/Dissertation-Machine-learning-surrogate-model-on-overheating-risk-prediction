@@ -1,0 +1,3 @@
+weather,new_cases,reused_cases,batch_seconds_including_audit,mean_new_case_processing_seconds,median_new_case_processing_seconds
+TMYx,3840,160,1707.5249889169354,3.2600785879958494,3.2470671664341353
+DSY1,3840,160,1707.822601832915,3.2679820594673403,3.2518224589293823

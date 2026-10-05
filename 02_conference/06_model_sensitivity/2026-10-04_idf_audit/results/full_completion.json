@@ -1,0 +1,9 @@
+{
+  "stage": "full",
+  "runs": 1440,
+  "all_ok": true,
+  "elapsed_sec": 7.130816624965519,
+  "finished_utc": "2026-10-04T01:33:57.259556+00:00",
+  "initial_failures": 1,
+  "recovered_with_isolated_workdirs": 1
+}

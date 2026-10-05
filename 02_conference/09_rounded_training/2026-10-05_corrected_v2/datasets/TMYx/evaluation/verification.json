@@ -1,0 +1,12 @@
+{
+  "trials": 180,
+  "predictions": 45000,
+  "metric_rows_recomputed": 150,
+  "shap_arrays_recomputed": 50,
+  "maximum_prediction_difference": 5.684341886080802e-14,
+  "split_assignments_match_original": true,
+  "scalers_training_only": true,
+  "selection_minimum_validation_loss": true,
+  "adapter_sha256": "3523ea90228f21f9703d44b4aa5aff2e24090686384d7d97542dca36f6dcffce",
+  "protocol_sha256": "8909a7fb592c645a474266c8d56975bb2225d17d118fd3f9c4a99c10e43e5387"
+}

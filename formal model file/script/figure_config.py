@@ -58,14 +58,14 @@ TARGET_PLOT_META = {
         "label": "He proxy (% summer hours)",
         "color": "#D95F02",
         "threshold": 3.0,
-        "threshold_label": "TM52 C1 = 3%",
+        "threshold_label": "C1 proxy reference: 3%",
     },
     "We_max_worst": {
         "short": "We_max_worst",
         "label": "Stepped daily exceedance proxy",
         "color": "#E6AB02",
         "threshold": 6.0,
-        "threshold_label": "TM52 C2 = 6",
+        "threshold_label": "C2 proxy reference: 6",
     },
     "T_op_peak": {
         "short": "T_op_peak",
@@ -76,10 +76,10 @@ TARGET_PLOT_META = {
     },
     "hours_gt26_night": {
         "short": "hours_gt26_night",
-        "label": "Bedroom night hours > 26°C",
+        "label": "Summer bedroom night hours > 26°C",
         "color": "#1F78B4",
         "threshold": 32.0,
-        "threshold_label": "TM59 = 32 h",
+        "threshold_label": "32 h reference (annual TM59:2017 basis)",
     },
     "heat_kWh_m2": {
         "short": "heat_kWh_m2",

@@ -1,0 +1,22 @@
+{
+  "audited": 4000,
+  "all_ok": true,
+  "recovered_checkpoint_ids": [
+    "detached/run_0673",
+    "detached/run_1146",
+    "detached/run_1414",
+    "detached/run_1759",
+    "detached/run_1961",
+    "semi/run_0703",
+    "semi/run_0756",
+    "semi/run_0903"
+  ],
+  "results_sha256": "76c31b9c888d5a510ea01a45e30d217023e134e3210db8bf045f932c87056e77",
+  "script_sha256": "996300b1f5918f87acc0524bcde40bf61bb8320669b8a932ff7e89ff1273dd83",
+  "training_hashes": {
+    "detached": "5132a4d382858f2a3a230c05c4d083044c401280163f7963a89bf001ce3416dc",
+    "semi": "ae358267bb52afa55a9407de25ce58fd1dc3ff7ae87216362a1b57740c56ac9e"
+  },
+  "finished_utc": "2026-10-02T20:05:34.456040+00:00",
+  "physical_simulations_repeated": 0
+}

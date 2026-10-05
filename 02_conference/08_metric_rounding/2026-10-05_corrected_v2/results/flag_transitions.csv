@@ -1,0 +1,13 @@
+weather,archetype,metric,n,false_to_false,false_to_true,true_to_false,true_to_true,changed
+DSY1,detached,C1_gt3,2000,1954,31,0,15,31
+DSY1,detached,C3_nonzero,2000,31,0,118,1851,118
+DSY1,detached,same_zone_two_of_three,2000,31,0,118,1851,118
+DSY1,semi,C1_gt3,2000,1982,15,0,3,15
+DSY1,semi,C3_nonzero,2000,178,0,314,1508,314
+DSY1,semi,same_zone_two_of_three,2000,178,0,314,1508,314
+TMYx,detached,C1_gt3,2000,1999,1,0,0,1
+TMYx,detached,C3_nonzero,2000,2000,0,0,0,0
+TMYx,detached,same_zone_two_of_three,2000,1999,1,0,0,1
+TMYx,semi,C1_gt3,2000,2000,0,0,0,0
+TMYx,semi,C3_nonzero,2000,2000,0,0,0,0
+TMYx,semi,same_zone_two_of_three,2000,2000,0,0,0,0
