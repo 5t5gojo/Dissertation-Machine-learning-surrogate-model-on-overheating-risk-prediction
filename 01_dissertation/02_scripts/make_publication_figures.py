@@ -1,1 +1,0 @@
-../../formal model file/script/make_publication_figures.py

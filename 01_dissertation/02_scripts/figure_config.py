@@ -1,1 +1,0 @@
-../../formal model file/script/figure_config.py

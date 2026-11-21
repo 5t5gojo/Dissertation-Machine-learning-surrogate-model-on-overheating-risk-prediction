@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "Interpretable ML surrogates for overheating in UK houses"
+authors:
+  - family-names: Bao
+    given-names: Houlin
+  - family-names: Gutland
+    given-names: Michael
+repository-code: "https://github.com/5t5gojo/Dissertation-Machine-learning-surrogate-model-on-overheating-risk-prediction"
+preferred-citation:
+  type: conference-paper
+  title: "Interpretable Machine Learning Surrogate Models for Overheating Assessment in UK Detached and Semi-Detached Houses"
+  authors:
+    - family-names: Bao
+      given-names: Houlin
+    - family-names: Gutland
+      given-names: Michael
+  conference:
+    name: "BSO-uSIM 2026"
+    city: Glasgow
+    country: GB
+  year: 2026

@@ -1,0 +1,16 @@
+[project]
+name = "overheating-surrogates"
+version = "1.0.0"
+description = "Interpretable machine learning surrogate models for overheating assessment in UK detached and semi-detached houses"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["N803", "N806"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["common", "evaluation", "geometry", "idf", "metrics", "models", "report", "simulate", "train", "verify", "figures"]

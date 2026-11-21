@@ -1,1 +1,0 @@
-../../formal model file/script/dsy_runner.py

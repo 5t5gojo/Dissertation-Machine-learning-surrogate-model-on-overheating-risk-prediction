@@ -1,1 +1,0 @@
-../../formal model file/script/batch_runner_v7.py

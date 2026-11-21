@@ -1,68 +1,102 @@
-# Machine Learning Surrogate Models for Predicting Summertime Overheating Risk in UK Detached and Semi-Detached Dwellings
+# Interpretable ML Surrogates for Overheating in UK Houses
 
-## Latest Conference Results
+Code, data and results for
 
-The latest evaluated dataset is **corrected V2 with rounded C1**, dated 2026-10-05.
-Start with [the rounded-training summary](02_conference/09_rounded_training/2026-10-05_corrected_v2/reports/RESULTS_SUMMARY.md).
-It covers 8,000 existing corrected simulations across TMYx/DSY1 and detached/semi-detached houses,
-with five matched splits and six candidate configurations per model family.
-Only the C1 training target changed in this step; C3 and same-zone flags are diagnostics.
-These are simulation-based screening proxies, not formal compliance or physical validation.
+> Bao, H. and Gutland, M. (2026). **Interpretable Machine Learning Surrogate Models for Overheating Assessment in UK Detached and Semi-Detached Houses.** BSO-uSIM 2026, University of Strathclyde, Glasgow, 23–24 November 2026. Paper 166.
 
-- [Metric-rounding audit](02_conference/08_metric_rounding/2026-10-05_corrected_v2/FINDINGS_zh.md).
-- [Corrected physical-model experiment](02_conference/07_corrected_full/2026-10-04_combined_v2/README.md).
-- [Conference experiment navigation](02_conference/README.md).
+EnergyPlus is accurate but slow for screening thousands of design variants. This project trains Random Forest, XGBoost and a multi-output neural network (MLP) to reproduce EnergyPlus overheating and heating results for UK detached and semi-detached houses, then asks **where that reliability breaks down**: by outcome, in the high-exposure tail, and across explanation methods.
 
-Earlier experiment folders and the original dissertation results are retained as historical
-evidence. Their metric definitions and model scores must not be mixed with the latest results.
+## Key findings
 
-## Publication Layout
+- **Peak temperature is reliably learnable.** XGBoost test R² is 0.956–0.977 across both archetypes and both weather files; MAE is below 0.1 °C.
+- **Aggregate accuracy hides tail failure.** Under the CIBSE design summer year, night-time R² *rises* (0.68 → 0.80, detached, MLP) while RMSE doubles (1.84 → 3.92 h). For homes above 32 night hours, the MLP underpredicts by 7.5 h (detached) and 9.2 h (semi-detached), with subgroup RMSE of 18.4 and 14.0 h.
+- **Explanations are conditional.** For night-time exposure, glazing g-value leads in detached houses under every method; in semi-detached houses SHAP ranks window opening factor first while permutation importance mostly ranks g-value first.
 
-- [Dissertation](01_dissertation/README.md): original-workflow entry points; manuscripts remain local.
-- [Conference paper](02_conference/README.md): versioned experiments, derived data and reports.
-- `formal model file/` remains the shared executable workflow. Original paths are preserved; revision outputs are accessed through compatibility links to `02_conference/`.
-- Folder links must be resolved when preparing a standalone supplementary archive. Local manuscript links are not downloadable paper releases.
+<p align="center"><img src="figures/performance.png" width="860" alt="XGBoost test R² by target for both archetypes and weather files"></p>
+<p align="center"><img src="figures/night_parity_DSY1.png" width="780" alt="MLP predicted versus simulated night hours under DSY1"></p>
+<p align="center"><img src="figures/night_importance_ratio.png" width="700" alt="Ratio of opening-factor to g-value importance by explanation method"></p>
 
-This repository contains the reproducible modelling workflow, simulation outputs, trained surrogate artefacts and publication figures for a UCL undergraduate dissertation on overheating-risk surrogate modelling.
+## Study design
 
-The final dissertation PDF is submitted separately through the university submission system. This repository is intended to document the computational workflow and supporting outputs.
+| Aspect | Setting |
+| --- | --- |
+| Archetypes | Two-storey detached house; semi-detached variant with an adiabatic party wall, fewer openings and a smaller ground perimeter |
+| Design inputs | 14 continuous parameters (geometry, orientation, WWR, glazing, insulation, roof absorptance, infiltration, window opening, overhang), 2,000 Latin hypercube samples per archetype |
+| Simulation | EnergyPlus 25.1; free-running summer, ideal-loads heating |
+| Weather | London St James's Park TMYx 2009–2023; CIBSE DSY1 2030s High emissions 50th percentile |
+| Targets | Hₑ (TM52 C1 proxy), Wₑ (TM52 C2 proxy), peak operative temperature, summer bedroom night hours >26 °C, annual heating demand |
+| Models | RF, XGBoost, MLP; six candidate configurations each; five matched 70/15/15 splits; selection on validation loss only |
+| Interpretation | XGBoost TreeSHAP; held-out permutation importance for XGBoost and MLP |
 
-## Repository structure
-- `formal model file/`
-  - EnergyPlus IDF templates
-  - parameter configuration files
-  - Python batch runner
-  - surrogate-training notebook
-  - publication-figure scripts
-  - canonical result tables
-  - trained model artefacts
-  - final in-text and appendix figures
+The targets are **screening proxies** on simplified schedules, not formal TM52/TM59 compliance results. Models are retrained for each weather file; cross-climate transfer is not tested.
 
-## Active workflow files
-- `formal model file/script/work.ipynb`
-  - Preserved sampling/setup notebook for the original dissertation workflow; not the rounded-C1 training entry point.
-- `formal model file/script/batch_runner_v7.py`
-  - Generates LHS samples, substitutes IDF placeholders, runs EnergyPlus and post-processes outputs.
-- `formal model file/script/03_surrogate_v7.ipynb`
-  - Trains RF, XGBoost and MLP surrogate models and exports intermediate result tables.
-- `formal model file/script/figure_config.py`
-  - Defines target ordering, labels, paths and figure settings.
-- `formal model file/script/make_publication_figures.py`
-  - Generates publication figures from fixed CSV outputs.
+## Repository layout
 
-## Original Dissertation Outputs
-- `formal model file/output/results/results_v7.csv`
-- `formal model file/output/results/results_v7_semi.csv`
-- `formal model file/output/results/model_performance.csv`
-- `formal model file/output/results/model_performance_semi.csv`
-- `formal model file/output/figures/in_text/`
-- `formal model file/output/figures/appendix/`
+```
+config/      parameter bounds, IDF templates, the fixed training protocol, data checksums
+data/        final datasets (2 weather files x 2 archetypes x 2,000 cases), samples, splits
+results/     scores, held-out predictions, night-time diagnostics, SHAP and permutation importance
+figures/     the figures above, drawn from results/
+src/         the full pipeline (below)
+tests/       fast regression tests
+```
 
-## Notes
-- Current conference CSVs include predictions, performance summaries, selected configurations, split assignments, SHAP values and permutation comparisons under `02_conference/09_rounded_training/2026-10-05_corrected_v2/datasets/{TMYx,DSY1}/evaluation/`.
-- Conference raw hourly runs, generated per-case IDFs and repeated-fit model binaries remain local. Code, input tables, protocols and derived results are included; source-preservation manifests also refer to excluded local files. A fresh clone is not a complete simulation cache and cannot pass every local reload/hash check without restoring or regenerating those files.
-- Licensed CIBSE weather files are excluded from every conference experiment directory. DSY reproduction requires a separately obtained licensed file. The original public TMYx EPW remains included.
-- Word/PDF manuscripts, reviewer correspondence, supplementary ZIPs and submission snapshots remain local and are not uploaded by this update. This repository does not claim that older publication figures have been refreshed for rounded C1.
-- Raw EnergyPlus run directories are intentionally excluded because they are large and can be regenerated from the runner, templates and LHS files.
-- The London St James's Park TMYx 2009--2023 EPW file is included under `formal model file/weather file/` for reproducibility and is sourced from Climate.OneBuilding / OneBuilding weather data.
-- `hours_C3_worst` is retained in the results as a diagnostic variable only. It is not used as a surrogate training target and should not appear in model-performance, parity, SHAP or RF-importance figures.
+| Module | Role |
+| --- | --- |
+| `src/geometry.py` | Sampled design → window layout, occupancy and IDF placeholder values |
+| `src/idf.py` | Final IDF corrections applied as checked in-place field edits |
+| `src/simulate.py` | Build IDFs from the samples and optionally run EnergyPlus |
+| `src/metrics.py` | TM52/TM59-based targets from hourly EnergyPlus output |
+| `src/models.py` | RF, XGBoost and MLP fitting and prediction |
+| `src/evaluation.py` | Test scores, night-time tail diagnostics, SHAP and permutation importance |
+| `src/train.py` | The full training and evaluation protocol |
+| `src/report.py` | Summary tables derived from per-split results |
+| `src/verify.py` | Consistency checks on the published data and results |
+| `src/figures.py` | The figures in `figures/` |
+
+Column definitions are in [DATA.md](DATA.md).
+
+## Quick start
+
+Python 3.12 with the recorded package versions:
+
+```sh
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v   # ~5 s
+python src/verify.py                      # checks every published score against the saved predictions
+python src/figures.py                     # redraws figures/
+```
+
+Retrain (each weather file takes roughly 15 minutes on one CPU core; output goes to a new folder):
+
+```sh
+python src/train.py TMYx --output output/training
+python src/train.py DSY1 --output output/training --seeds 42
+```
+
+Generate simulation inputs, or simulate with your own EnergyPlus 25.1 and weather file:
+
+```sh
+python src/simulate.py detached --output output/idf_detached
+python src/simulate.py semi --output output/sim_semi --energyplus /path/to/energyplus --weather /path/to/weather.epw
+```
+
+Weather files are not redistributed: TMYx is available from [Climate.OneBuilding](https://climate.onebuilding.org/), and DSY1 requires a CIBSE licence.
+
+## Reproducibility
+
+- `src/simulate.py` regenerates IDFs that are byte-identical to the 4,000 files that were simulated, and `src/metrics.py` reproduces every published target exactly from the hourly outputs.
+- `src/verify.py` recomputes all 500 score rows from the saved predictions and the summary tables from the per-split results.
+- Retraining is deterministic on a given machine (single-threaded, fixed seeds). The published results were produced on Apple Silicon; on other platforms, random subsampling in XGBoost and floating-point summation can shift some scores in the third decimal place.
+
+## Citation
+
+```bibtex
+@inproceedings{bao2026overheating,
+  author    = {Bao, Houlin and Gutland, Michael},
+  title     = {Interpretable Machine Learning Surrogate Models for Overheating Assessment in {UK} Detached and Semi-Detached Houses},
+  booktitle = {Proceedings of BSO-uSIM 2026},
+  address   = {Glasgow, UK},
+  year      = {2026}
+}
+```
