@@ -37,7 +37,7 @@ histogram = px.histogram(
     labels={"value": label(target), "weather": "Weather file"},
 )
 histogram.update_layout(title="Distribution across designs", yaxis_title="Designs", legend_title=None)
-left.plotly_chart(histogram, use_container_width=True)
+left.plotly_chart(histogram, width="stretch")
 
 low, high = min(before.min(), after.min()), max(before.max(), after.max())
 scatter = go.Figure()
@@ -60,7 +60,7 @@ scatter.update_layout(
     yaxis_title=f"DSY1: {label(target)}",
     showlegend=False,
 )
-right.plotly_chart(scatter, use_container_width=True)
+right.plotly_chart(scatter, width="stretch")
 
 st.subheader("Screening flags (share of designs)")
 rows = []
@@ -80,5 +80,5 @@ for code in ARCHETYPES:
             }
         )
 flags = pd.DataFrame(rows).set_index(["Archetype", "Weather"])
-st.dataframe(flags.style.format("{:.1%}"), use_container_width=True)
+st.dataframe(flags.style.format("{:.1%}"), width="stretch")
 st.caption("Night hours count May–September only, so the 32 h line is a diagnostic reference, not the TM59 criterion.")

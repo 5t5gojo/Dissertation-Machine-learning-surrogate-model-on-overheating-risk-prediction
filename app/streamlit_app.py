@@ -13,6 +13,7 @@ pages = st.navigation(
     [
         st.Page("pages/overview.py", title="Overview", default=True),
         st.Page("pages/weather.py", title="Weather comparison"),
+        st.Page("pages/explorer.py", title="Design explorer"),
         st.Page("pages/evaluation.py", title="Model evaluation"),
         st.Page("pages/explainability.py", title="Explainability"),
         st.Page("pages/predictor.py", title="Surrogate predictor"),

@@ -17,7 +17,7 @@ MODELS = ["RF", "XGBoost", "MLP"]
 BASELINES = ["AlwaysZero", "TrainingMean"]
 
 TARGETS = {
-    "He_worst": ("Hₑ: hours above the adaptive limit", "%"),
+    "He_worst": ("Hₑ: exceedance frequency", "% of hours"),
     "We_max_worst": ("Wₑ: worst daily weighted exceedance", "K h"),
     "T_op_peak": ("Peak operative temperature", "°C"),
     "hours_gt26_night": ("Bedroom night hours above 26 °C", "h"),

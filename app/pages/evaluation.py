@@ -28,11 +28,11 @@ bars = go.Figure(
     )
 )
 bars.update_layout(title="Test R² (mean ± SD of five splits)", yaxis=dict(range=[min(0, r2.R2_mean.min() - 0.1), 1.05]))
-left.plotly_chart(bars, use_container_width=True)
+left.plotly_chart(bars, width="stretch")
 
 table = summary.loc[MODELS + BASELINES, ["R2_mean", "R2_std", "MAE_mean", "RMSE_mean"]]
 table.columns = ["R² mean", "R² SD", "MAE", "RMSE"]
-left.dataframe(table.style.format("{:.3f}"), use_container_width=True)
+left.dataframe(table.style.format("{:.3f}"), width="stretch")
 left.caption("SDs describe overlapping splits, not independent confidence intervals.")
 
 model = right.radio("Model", MODELS, index=MODELS.index("MLP") if target == "hours_gt26_night" else 1, horizontal=True)
@@ -60,7 +60,7 @@ parity.update_layout(
     xaxis_title=f"Simulated {label(target)}",
     yaxis_title="Predicted",
 )
-right.plotly_chart(parity, use_container_width=True)
+right.plotly_chart(parity, width="stretch")
 right.caption("A design can appear in more than one test split.")
 
 if target == "hours_gt26_night":
@@ -72,5 +72,5 @@ if target == "hours_gt26_night":
     wide.index = ["All", "Zero", "Nonzero", "P90 tail of positive training values", "Above 32 h"]
     counts = sub[sub.model == "XGBoost"].set_index("subgroup").reindex(order)["n"].round(1).to_numpy()
     wide.insert(0, ("", "Test cases per split"), counts)
-    st.dataframe(wide.style.format("{:.2f}", na_rep="–"), use_container_width=True)
+    st.dataframe(wide.style.format("{:.2f}", na_rep="–"), width="stretch")
     st.caption("Mean over the five splits. Bias = prediction − simulation; negative values are underpredictions.")
