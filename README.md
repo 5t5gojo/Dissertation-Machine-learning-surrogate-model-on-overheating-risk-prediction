@@ -1,10 +1,10 @@
 # Interpretable ML Surrogates for Overheating in UK Houses
 
-Code, data and results for
+This repository contains the code, simulation datasets, experimental results and analysis tools accompanying our BSO-uSIM 2026 paper on machine-learning surrogate models for overheating assessment in UK detached and semi-detached houses.
 
 > Bao, H. and Gutland, M. (2026). **Interpretable Machine Learning Surrogate Models for Overheating Assessment in UK Detached and Semi-Detached Houses.** BSO-uSIM 2026, University of Strathclyde, Glasgow, 23–24 November 2026. Paper 166.
 
-EnergyPlus is accurate but slow for screening thousands of design variants. This project trains Random Forest, XGBoost and a multi-output neural network (MLP) to reproduce EnergyPlus overheating and heating results for UK detached and semi-detached houses, then asks **where that reliability breaks down**: by outcome, in the high-exposure tail, and across explanation methods.
+The study uses 8,000 EnergyPlus simulations across two dwelling archetypes and two weather files (London TMYx and CIBSE DSY1). Random Forest, XGBoost and multilayer perceptron models are evaluated for predicting overheating indicators and annual ideal heating demand, with particular attention to prediction errors in the high-exposure tail and the consistency of feature-importance interpretations.
 
 ## Key findings
 
