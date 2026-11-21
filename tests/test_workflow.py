@@ -67,6 +67,27 @@ class Targets(unittest.TestCase):
 
 
 class Models(unittest.TestCase):
+    def test_published_models_reproduce_seed_42_predictions(self):
+        import xgboost
+
+        from common import load_dataset, split_indices
+
+        for weather in ["TMYx", "DSY1"]:
+            published = pd.read_csv(ROOT / "results" / weather / "predictions.csv").query(
+                "model == 'XGBoost' and seed == 42"
+            )
+            for archetype in ["detached", "semi"]:
+                data = load_dataset(weather, archetype)
+                _, _, test = split_indices(len(data), 42)
+                for target in TARGETS:
+                    booster = xgboost.Booster(
+                        model_file=str(ROOT / "models" / "xgboost_seed42" / f"{weather}_{archetype}_{target}.ubj")
+                    )
+                    expected = published[(published.archetype == archetype) & (published.target == target)]
+                    expected = expected.set_index("run_id").loc[data.run_id.iloc[test], "y_pred"].to_numpy()
+                    predicted = booster.inplace_predict(data[FEATURES].to_numpy()[test])
+                    np.testing.assert_allclose(predicted, expected, rtol=0, atol=1e-9)
+
     def test_every_family_fits_and_predicts(self):
         from models import fit_model, predict
 

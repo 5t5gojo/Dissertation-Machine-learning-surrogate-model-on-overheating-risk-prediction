@@ -37,6 +37,8 @@ config/      parameter bounds, IDF templates, the fixed training protocol, data 
 data/        final datasets (2 weather files x 2 archetypes x 2,000 cases), samples, splits
 results/     scores, held-out predictions, night-time diagnostics, SHAP and permutation importance
 figures/     the figures above, drawn from results/
+models/      the published split-seed-42 XGBoost models used by the dashboard
+app/         interactive Streamlit dashboard
 src/         the full pipeline (below)
 tests/       fast regression tests
 ```
@@ -53,6 +55,7 @@ tests/       fast regression tests
 | `src/report.py` | Summary tables derived from per-split results |
 | `src/verify.py` | Consistency checks on the published data and results |
 | `src/figures.py` | The figures in `figures/` |
+| `src/export_models.py` | Refits and saves the seed-42 XGBoost models in `models/` |
 
 Column definitions are in [DATA.md](DATA.md).
 
@@ -82,6 +85,24 @@ python src/simulate.py semi --output output/sim_semi --energyplus /path/to/energ
 ```
 
 Weather files are not redistributed: TMYx is available from [Climate.OneBuilding](https://climate.onebuilding.org/), and DSY1 requires a CIBSE licence.
+
+## Interactive dashboard
+
+A Streamlit dashboard presents the data and results without running any simulation or training:
+
+```sh
+python -m pip install -r app/requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+| Page | Contents |
+| --- | --- |
+| Weather comparison | Each outcome under TMYx and DSY1 for the same designs, and the share of designs exceeding each screening threshold |
+| Model evaluation | Test scores across five splits, predicted against simulated values, and night-time tail errors |
+| Explainability | XGBoost SHAP and XGBoost/MLP permutation importance for every outcome |
+| Surrogate predictor | Predictions of the published seed-42 XGBoost models for a design within the sampled ranges |
+
+The predictor returns surrogate estimates of EnergyPlus results for the simplified study model, not predictions of measured temperatures in real homes, and its overheating indicators are screening proxies rather than compliance results.
 
 ## Reproducibility
 

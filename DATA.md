@@ -46,3 +46,8 @@ Test samples recur across the five splits; the prediction rows are not independe
 ## Figures
 
 `figures/*.png` are drawn by `src/figures.py` from `results/` only.
+
+## Models
+
+`models/xgboost_seed42/{weather}_{archetype}_{target}.ubj` are XGBoost models (UBJSON format, XGBoost 3.0.5) refitted by `src/export_models.py` with the configuration selected on validation loss for split seed 42. They reproduce the published seed-42 XGBoost test predictions in `results/*/predictions.csv` (checked in `tests/`). Inputs are the 14 design columns in the order of `config/parameters.json`.
+
