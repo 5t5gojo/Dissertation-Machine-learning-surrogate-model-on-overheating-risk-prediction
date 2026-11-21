@@ -95,14 +95,17 @@ python -m pip install -r app/requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
+The home page is a design explorer. Changing the inputs of a detached or semi-detached house updates a three-dimensional view, drawn with the same geometry rules as the EnergyPlus models, and the predictions of the published seed-42 XGBoost models under both weather files. A design can be pinned and compared with later changes. The research pages show the evidence behind the models:
+
 | Page | Contents |
 | --- | --- |
+| Research overview | Paper, scale of the study, main findings and limitations |
 | Weather comparison | Each outcome under TMYx and DSY1 for the same designs, and the share of designs exceeding each screening threshold |
+| Simulated cases | One simulated design at a time, with its EnergyPlus results and the held-out predictions of each surrogate |
 | Model evaluation | Test scores across five splits, predicted against simulated values, and night-time tail errors |
-| Explainability | XGBoost SHAP and XGBoost/MLP permutation importance for every outcome |
-| Surrogate predictor | Predictions of the published seed-42 XGBoost models for a design within the sampled ranges |
+| Explainability | XGBoost SHAP and XGBoost/MLP permutation importance for every outcome, and SHAP under both weather files |
 
-The predictor returns surrogate estimates of EnergyPlus results for the simplified study model, not predictions of measured temperatures in real homes, and its overheating indicators are screening proxies rather than compliance results.
+The design explorer returns surrogate estimates of EnergyPlus results for the simplified study model, not predictions of measured temperatures in real homes, and its overheating indicators are screening proxies rather than compliance results.
 
 ## Reproducibility
 

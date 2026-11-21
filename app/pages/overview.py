@@ -10,6 +10,7 @@ st.markdown(
     "*BSO-uSIM 2026, University of Strathclyde, Glasgow, 23–24 November 2026 (Paper 166)*  \n"
     f"[Code, data and results on GitHub]({REPOSITORY})"
 )
+st.page_link("pages/design.py", label="Try the design explorer", icon=":material/home_work:")
 
 columns = st.columns(5)
 columns[0].metric("EnergyPlus simulations", "8,000")
@@ -46,7 +47,7 @@ st.markdown(
     f"yet homes with more than 32 night hours above 26 °C are underpredicted by {-bias['detached']:.1f} h "
     f"(detached) and {-bias['semi']:.1f} h (semi-detached) on average."
 )
-st.page_link("pages/explorer.py", label="Design explorer")
+st.page_link("pages/explorer.py", label="Simulated cases")
 st.markdown(
     "**3. Explanations are conditional.** In semi-detached houses, the leading night-time input changes between "
     "SHAP and permutation importance. Between the two weather files the leading inputs stay the same, while "

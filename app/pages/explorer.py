@@ -16,7 +16,7 @@ from common import (
 )
 
 page_header(
-    "Design explorer",
+    "Simulated cases",
     "Pick one simulated design to see its inputs, its EnergyPlus results under both weather files, "
     "and how well each surrogate predicted it when it was in a test split.",
 )
